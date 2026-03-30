@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Smart Student MS</string>
+    <string name="app_full_name">Smart Student Management System</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard">Dashboard</string>
+    <string name="add_student">Add Student</string>
+    <string name="view_students">View Students</string>
+    <string name="search_student">Search Student</string>
+    <string name="statistics">Statistics</string>
+    <string name="export_data">Export Data</string>
+    <string name="total_students">Total Students</string>
+    <string name="average_marks">Average Marks</string>
+    <string name="top_performer">Top Performer</string>
+    <string name="quick_stats">Quick Statistics</string>
+
+    <!-- Add/Edit Student Form -->
+    <string name="student_name">Full Name</string>
+    <string name="roll_number">Roll Number</string>
+    <string name="department">Department</string>
+    <string name="semester">Semester</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="email">Email Address</string>
+    <string name="marks">Marks / GPA</string>
+    <string name="attendance">Attendance (%)</string>
+    <string name="save_student">Save Student</string>
+    <string name="update_student">Update Student</string>
+    <string name="edit_student">Edit Student</string>
+
+    <!-- Validation -->
+    <string name="error_name_required">Name is required</string>
+    <string name="error_roll_required">Roll number is required</string>
+    <string name="error_dept_required">Department is required</string>
+    <string name="error_semester_required">Semester is required</string>
+    <string name="error_phone_required">Phone number is required</string>
+    <string name="error_phone_invalid">Enter a valid 10-digit phone number</string>
+    <string name="error_email_required">Email is required</string>
+    <string name="error_email_invalid">Enter a valid email address</string>
+    <string name="error_marks_required">Marks are required</string>
+    <string name="error_marks_invalid">Marks must be between 0 and 100</string>
+    <string name="error_attendance_required">Attendance is required</string>
+    <string name="error_attendance_invalid">Attendance must be between 0 and 100</string>
+    <string name="error_roll_duplicate">Roll number already exists</string>
+
+    <!-- Messages -->
+    <string name="student_added">Student added successfully!</string>
+    <string name="student_updated">Student updated successfully!</string>
+    <string name="student_deleted">Student deleted successfully!</string>
+    <string name="no_students">No students found</string>
+    <string name="pdf_exported">PDF exported successfully!</string>
+    <string name="pdf_export_failed">Failed to export PDF</string>
+
+    <!-- Dialogs -->
+    <string name="delete_confirm_title">Delete Student</string>
+    <string name="delete_confirm_message">Are you sure you want to delete this student? This action cannot be undone.</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+
+    <!-- Student List -->
+    <string name="students_list">Students List</string>
+    <string name="search_hint">Search by name, roll no. or department…</string>
+    <string name="sort_by">Sort By</string>
+    <string name="sort_name">Name</string>
+    <string name="sort_marks">Marks</string>
+    <string name="sort_roll">Roll Number</string>
+
+    <!-- Detail -->
+    <string name="student_profile">Student Profile</string>
+    <string name="performance_excellent">Excellent</string>
+    <string name="performance_good">Good</string>
+    <string name="performance_average">Average</string>
+    <string name="performance_poor">Poor</string>
+    <string name="attendance_regular">Regular</string>
+    <string name="attendance_irregular">Irregular</string>
+
+    <!-- Statistics -->
+    <string name="highest_marks">Highest Marks</string>
+    <string name="lowest_marks">Lowest Marks</string>
+    <string name="dept_wise">Department-wise Count</string>
+
+    <!-- Theme -->
+    <string name="dark_mode">Dark Mode</string>
+    <string name="light_mode">Light Mode</string>
+    <string name="toggle_theme">Toggle Theme</string>
+</resources>

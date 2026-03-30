@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.SmartStudentMS" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">#90CAF9</item>
+        <item name="colorPrimaryDark">#1565C0</item>
+        <item name="colorPrimaryVariant">#1565C0</item>
+        <item name="colorOnPrimary">#000000</item>
+        <item name="colorSecondary">#FFCC80</item>
+        <item name="colorSecondaryVariant">#FF6D00</item>
+        <item name="colorOnSecondary">#000000</item>
+        <item name="android:colorBackground">#121212</item>
+        <item name="colorSurface">#1E1E1E</item>
+        <item name="colorOnSurface">#EFEFEF</item>
+        <item name="android:statusBarColor">#1565C0</item>
+        <item name="android:navigationBarColor">#1565C0</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+</resources>
