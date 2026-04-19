@@ -6,10 +6,12 @@ import android.text.Editable
 import android.text.TextWatcher
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.snackbar.Snackbar
+import com.studentmanagement.R
 import com.studentmanagement.adapter.StudentAdapter
 import com.studentmanagement.databinding.ActivityStudentListBinding
 import com.studentmanagement.model.Student
@@ -81,8 +83,8 @@ class StudentListActivity : AppCompatActivity() {
     }
 
     private fun observeStudents() {
-        // Observe search results when searching, sorted list otherwise
-        viewModel.searchResults.observe(this) { students ->
+        // Observe search and sorted results
+        viewModel.studentList.observe(this) { students ->
             adapter.submitList(students)
             binding.layoutEmpty.visibility =
                 if (students.isEmpty()) android.view.View.VISIBLE else android.view.View.GONE
@@ -104,13 +106,13 @@ class StudentListActivity : AppCompatActivity() {
 
     private fun confirmDelete(student: Student) {
         AlertDialog.Builder(this)
-            .setTitle(getString(com.studentmanagement.R.string.delete_confirm_title))
-            .setMessage(getString(com.studentmanagement.R.string.delete_confirm_message))
-            .setPositiveButton(getString(com.studentmanagement.R.string.delete)) { _, _ ->
+            .setTitle(getString(R.string.delete_confirm_title))
+            .setMessage(getString(R.string.delete_confirm_message))
+            .setPositiveButton(getString(R.string.delete)) { _, _ ->
                 viewModel.deleteStudent(student)
-                Snackbar.make(binding.root, getString(com.studentmanagement.R.string.student_deleted), Snackbar.LENGTH_LONG).show()
+                Snackbar.make(binding.root, getString(R.string.student_deleted), Snackbar.LENGTH_LONG).show()
             }
-            .setNegativeButton(getString(com.studentmanagement.R.string.cancel), null)
+            .setNegativeButton(getString(R.string.cancel), null)
             .show()
     }
 

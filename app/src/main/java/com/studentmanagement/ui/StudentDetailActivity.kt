@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
@@ -85,12 +86,12 @@ class StudentDetailActivity : AppCompatActivity() {
         binding.tvDetailPerformance.text = student.performanceStatus
 
         // Avatar color
-        val avatarColor = when (student.performanceStatus) {
-            "Excellent" -> Color.parseColor("#1565C0")
-            "Good" -> Color.parseColor("#00897B")
-            "Average" -> Color.parseColor("#F57F17")
-            else -> Color.parseColor("#C62828")
-        }
+        val avatarColor = ContextCompat.getColor(this, when (student.performanceStatus) {
+            "Excellent" -> R.color.primary
+            "Good" -> R.color.card_teal
+            "Average" -> R.color.warning
+            else -> R.color.error
+        })
         binding.cardAvatarDetail.backgroundTintList = ColorStateList.valueOf(avatarColor)
 
         // Populate detail rows

@@ -109,10 +109,10 @@ class StatisticsActivity : AppCompatActivity() {
                         LinearLayout.LayoutParams.MATCH_PARENT, 16
                     ).also { it.topMargin = 4 }
                     progressTintList = android.content.res.ColorStateList.valueOf(
-                        Color.parseColor("#1565C0")
+                        ContextCompat.getColor(this@StatisticsActivity, R.color.primary)
                     )
                     progressBackgroundTintList = android.content.res.ColorStateList.valueOf(
-                        Color.parseColor("#E0E0E0")
+                        ContextCompat.getColor(this@StatisticsActivity, R.color.divider)
                     )
                 }
 

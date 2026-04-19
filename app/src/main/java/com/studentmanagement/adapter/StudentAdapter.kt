@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import androidx.core.content.ContextCompat
+import com.studentmanagement.R
 import com.studentmanagement.databinding.ItemStudentBinding
 import com.studentmanagement.model.Student
 
@@ -39,22 +41,22 @@ class StudentAdapter(
                 tvAvatar.text = student.name.take(2).uppercase()
 
                 // Performance chip color
-                val chipColor = when (student.performanceStatus) {
-                    "Excellent" -> Color.parseColor("#2E7D32")
-                    "Good" -> Color.parseColor("#1565C0")
-                    "Average" -> Color.parseColor("#F57F17")
-                    else -> Color.parseColor("#C62828")
-                }
+                val chipColor = ContextCompat.getColor(binding.root.context, when (student.performanceStatus) {
+                    "Excellent" -> R.color.success
+                    "Good" -> R.color.primary
+                    "Average" -> R.color.warning
+                    else -> R.color.error
+                })
                 tvPerformanceBadge.text = student.performanceStatus
                 tvPerformanceBadge.backgroundTintList = ColorStateList.valueOf(chipColor)
 
                 // Avatar background color based on performance
-                val avatarColor = when (student.performanceStatus) {
-                    "Excellent" -> Color.parseColor("#1565C0")
-                    "Good" -> Color.parseColor("#00897B")
-                    "Average" -> Color.parseColor("#F57F17")
-                    else -> Color.parseColor("#C62828")
-                }
+                val avatarColor = ContextCompat.getColor(binding.root.context, when (student.performanceStatus) {
+                    "Excellent" -> R.color.primary
+                    "Good" -> R.color.card_teal
+                    "Average" -> R.color.warning
+                    else -> R.color.error
+                })
                 cardAvatar.backgroundTintList = ColorStateList.valueOf(avatarColor)
 
                 // Attendance indicator

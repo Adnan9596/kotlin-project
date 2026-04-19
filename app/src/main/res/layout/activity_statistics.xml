@@ -175,7 +175,7 @@
 
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                         android:text="🏫  Department-wise Students"
-                        android:textSize="15sp" android:textStyle="bold" android:textColor="@color/primary"
+                        android:textSize="15sp" android:textStyle="bold" android:textColor="?attr/colorPrimary"
                         android:layout_marginBottom="12dp" />
 
                     <LinearLayout

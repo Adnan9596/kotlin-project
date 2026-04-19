@@ -11,8 +11,8 @@
         <item name="android:colorBackground">#121212</item>
         <item name="colorSurface">#1E1E1E</item>
         <item name="colorOnSurface">#EFEFEF</item>
-        <item name="android:statusBarColor">#1565C0</item>
-        <item name="android:navigationBarColor">#1565C0</item>
+        <item name="android:statusBarColor">?attr/colorSurface</item>
+        <item name="android:navigationBarColor">?attr/colorSurface</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>

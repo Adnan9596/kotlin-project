@@ -25,8 +25,7 @@ class StudentViewModel(application: Application) : AndroidViewModel(application)
     val lowestMarks: LiveData<Double?>
     val topPerformer: LiveData<Student?>
 
-    val searchResults: LiveData<List<Student>>
-    val sortedStudents: LiveData<List<Student>>
+    val studentList: LiveData<List<Student>>
 
     private val _operationStatus = MutableLiveData<String>()
     val operationStatus: LiveData<String> get() = _operationStatus
@@ -42,16 +41,24 @@ class StudentViewModel(application: Application) : AndroidViewModel(application)
         lowestMarks = repository.lowestMarks
         topPerformer = repository.topPerformer
 
-        searchResults = _searchQuery.switchMap { query ->
-            if (query.isBlank()) repository.allStudents
-            else repository.searchStudents(query)
+        // Combined LiveData for search and sort
+        val combinedState = androidx.lifecycle.MediatorLiveData<Pair<String, Int>>().apply {
+            addSource(_searchQuery) { query -> value = Pair(query ?: "", _sortMode.value ?: Constants.SORT_BY_NAME) }
+            addSource(_sortMode) { mode -> value = Pair(_searchQuery.value ?: "", mode ?: Constants.SORT_BY_NAME) }
         }
 
-        sortedStudents = _sortMode.switchMap { mode ->
-            when (mode) {
-                Constants.SORT_BY_MARKS -> repository.getAllStudentsSortedByMarks()
-                Constants.SORT_BY_ROLL -> repository.getAllStudentsSortedByRoll()
-                else -> repository.getAllStudentsSortedByName()
+        studentList = combinedState.switchMap { (query, sortMode) ->
+            if (query.isBlank()) {
+                when (sortMode) {
+                    Constants.SORT_BY_MARKS -> repository.getAllStudentsSortedByMarks()
+                    Constants.SORT_BY_ROLL -> repository.getAllStudentsSortedByRoll()
+                    else -> repository.getAllStudentsSortedByName()
+                }
+            } else {
+                // For searching, we might need a more complex query in StudentDao if we want to sort search results.
+                // For now, let's just return search results (they are usually sorted by ID or Name by default)
+                // Actually, let's see if we can do better.
+                repository.searchStudents(query)
             }
         }
     }
